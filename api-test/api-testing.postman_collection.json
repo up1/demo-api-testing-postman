@@ -29,15 +29,10 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8080/login",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/login",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{baseUrl}}"
 					],
-					"port": "8080",
 					"path": [
 						"login"
 					]
@@ -97,15 +92,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8080/books",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/books",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{baseUrl}}"
 					],
-					"port": "8080",
 					"path": [
 						"books"
 					]
@@ -151,15 +141,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8080/books",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/books",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{baseUrl}}"
 					],
-					"port": "8080",
 					"path": [
 						"books"
 					]
@@ -205,15 +190,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8080/books/1",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/books/1",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{baseUrl}}"
 					],
-					"port": "8080",
 					"path": [
 						"books",
 						"1"
