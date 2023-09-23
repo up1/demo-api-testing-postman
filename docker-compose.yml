@@ -4,8 +4,25 @@ services:
     build:
       context: ./api
       dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    depends_on:
+      db:
+        condition: service_healthy
 
   db:
-    build:
-      context: ./db
-      dockerfile: Dockerfile
+    image: postgres:13
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db/tables.sql:/docker-entrypoint-initdb.d/1.sql
+      - ./db/data.sql:/docker-entrypoint-initdb.d/2.sql
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U data"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
