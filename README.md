@@ -1,6 +1,8 @@
 # Workshop API testing with Postman
 * REST API with go
 * Database => PostgreSQL
+* API testing with Postman and newman
+* Mock database with Docker
 
 ## Step to start demo project
 ```
