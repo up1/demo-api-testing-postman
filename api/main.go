@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"strings"
 	"time"
@@ -24,8 +25,10 @@ func main() {
 	handler := newHandler(db)
 
 	r := gin.New()
+	r.MaxMultipartMemory = 8 << 20 // 8 MiB
 
 	r.POST("/login", loginHandler)
+	r.POST("/upload", handler.uploadHandler)
 
 	protected := r.Group("/", authorizationMiddleware)
 
@@ -122,4 +125,14 @@ func (h *Handler) deleteBookHandler(c *gin.Context) {
 	}
 
 	c.Status(http.StatusNoContent)
+}
+
+func (h *Handler) uploadHandler(c *gin.Context) {
+	file, _ := c.FormFile("file")
+	log.Println(file.Filename)
+
+	// Upload the file to specific dst.
+	// c.SaveUploadedFile(file, dst)
+
+	c.String(http.StatusOK, fmt.Sprintf("'%s' uploaded!", file.Filename))
 }
