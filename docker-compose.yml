@@ -12,6 +12,7 @@ services:
       - DB=data
       - HOST=db
       - USER_API=https://jsonplaceholder.typicode.com
+      # - USER_API=http://mock-api:8882 # Use mock server
     depends_on:
       db:
         condition: service_healthy
@@ -36,3 +37,8 @@ services:
     tty: true
     volumes:
       - ./report:/etc/newman/newman
+
+  mock-api:
+    build: ./mock-api
+    ports:
+      - 8882:8882
