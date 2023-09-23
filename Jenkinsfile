@@ -14,9 +14,9 @@ pipeline {
                 sh 'docker compose build'
             }
         }
-        stage('3. Create container') {
+        stage('3. Deploy') {
             steps {
-                sh 'docker compose up -d api'''
+                sh 'docker compose up -d api'
             }
         }
         stage('4. API testing') {
