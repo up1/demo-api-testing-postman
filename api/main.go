@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"strings"
 	"time"
 
@@ -14,8 +15,14 @@ import (
 )
 
 func main() {
+	host := os.Getenv("HOST")
+	dbName := os.Getenv("DB")
+	user := os.Getenv("USER")
+	pass := os.Getenv("PASSWORD")
+	dbUrl := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=5432 sslmode=disable TimeZone=Asia/Bangkok", host, user, pass, dbName)
+
 	db, err := gorm.Open(postgres.New(postgres.Config{
-		DSN:                  "host=db user=user password=password dbname=data port=5432 sslmode=disable TimeZone=Asia/Bangkok",
+		DSN:                  dbUrl,
 		PreferSimpleProtocol: true, // disables implicit prepared statement usage
 	}), &gorm.Config{})
 

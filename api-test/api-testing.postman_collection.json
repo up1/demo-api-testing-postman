@@ -47,6 +47,42 @@
 		},
 		{
 			"name": "Get all books",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(3).to.eql(jsonData.length);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response is an array of objects\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"    jsonData.forEach(function(book) {",
+							"        pm.expect(book).to.be.an('object');",
+							"    });",
+							"});",
+							"",
+							"pm.test(\"Each book object has the required properties\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    jsonData.forEach(function(book) {",
+							"        pm.expect(book).to.have.property('id');",
+							"        pm.expect(book).to.have.property('title');",
+							"        pm.expect(book).to.have.property('author');",
+							"    });",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -79,6 +115,19 @@
 		},
 		{
 			"name": "Create a new book",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "bearer",
