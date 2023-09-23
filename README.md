@@ -37,3 +37,54 @@ form-data
 Response=200
 'data.txt' uploaded!
 ```
+
+### Manage book
+
+Get all books
+```
+GET /books
+Authorization: Bearer <token>
+
+Response=200
+[
+    {
+        "id": "1",
+        "title": "title 01",
+        "author": "author 01"
+    },
+    {
+        "id": "2",
+        "title": "test title 2",
+        "author": "test author 2"
+    }
+]
+```
+
+Create a new book
+```
+POST /books
+Authorization: Bearer <token>
+
+Body
+{
+    "id": "4",
+    "title": "test title 4",
+    "author": "test author 4"
+}
+
+Response=200
+{
+    "id": "4",
+    "title": "test title 4",
+    "author": "test author 4"
+}
+```
+
+Delete book by id
+```
+DELETE /books
+Authorization: Bearer <token>
+
+Response=204
+```
+

@@ -126,6 +126,7 @@ func (h *Handler) deleteBookHandler(c *gin.Context) {
 	id := c.Param("id")
 
 	if result := h.db.Delete(&Book{}, id); result.Error != nil {
+		c.JSON(http.StatusInternalServerError, nil)
 		return
 	}
 
