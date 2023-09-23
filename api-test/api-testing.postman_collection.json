@@ -201,6 +201,79 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Call external api",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response has the correct schema\", function () {",
+							"  var response = pm.response.json();",
+							"  var schema = {",
+							"    type: \"object\",",
+							"    properties: {",
+							"      id: { type: \"number\" },",
+							"      name: { type: \"string\" },",
+							"      username: { type: \"string\" },",
+							"      email: { type: \"string\", format: \"email\" },",
+							"      address: {",
+							"        type: \"object\",",
+							"        properties: {",
+							"          street: { type: \"string\" },",
+							"          suite: { type: \"string\" },",
+							"          city: { type: \"string\" },",
+							"          zipcode: { type: \"string\" },",
+							"          geo: {",
+							"            type: \"object\",",
+							"            properties: {",
+							"              lat: { type: \"string\" },",
+							"              lng: { type: \"string\" }",
+							"            }",
+							"          }",
+							"        }",
+							"      },",
+							"      phone: { type: \"string\" },",
+							"      website: { type: \"string\" },",
+							"      company: {",
+							"        type: \"object\",",
+							"        properties: {",
+							"          name: { type: \"string\" },",
+							"          catchPhrase: { type: \"string\" },",
+							"          bs: { type: \"string\" }",
+							"        }",
+							"      }",
+							"    },",
+							"    required: [\"id\", \"name\", \"username\", \"email\", \"address\", \"phone\", \"website\", \"company\"]",
+							"  };",
+							"  ",
+							"  pm.expect(tv4.validate(response, schema)).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/call",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"call"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"variable": [

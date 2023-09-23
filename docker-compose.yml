@@ -11,6 +11,7 @@ services:
       - PASSWORD=password
       - DB=data
       - HOST=db
+      - USER_API=https://jsonplaceholder.typicode.com
     depends_on:
       db:
         condition: service_healthy

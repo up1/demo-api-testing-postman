@@ -1,7 +1,9 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
@@ -39,6 +41,7 @@ func main() {
 
 	r.POST("/login", loginHandler)
 	r.POST("/upload", handler.uploadHandler)
+	r.GET("/call", handler.callApiHandler)
 
 	protected := r.Group("/", authorizationMiddleware)
 
@@ -148,4 +151,55 @@ func (h *Handler) uploadHandler(c *gin.Context) {
 	// c.SaveUploadedFile(file, dst)
 
 	c.String(http.StatusOK, fmt.Sprintf("'%s' uploaded!", file.Filename))
+}
+
+// Call external API => https://jsonplaceholder.typicode.com/users/1
+type User struct {
+	ID       int64   `json:"id"`
+	Name     string  `json:"name"`
+	Username string  `json:"username"`
+	Email    string  `json:"email"`
+	Address  Address `json:"address"`
+	Phone    string  `json:"phone"`
+	Website  string  `json:"website"`
+	Company  Company `json:"company"`
+}
+
+type Address struct {
+	Street  string `json:"street"`
+	Suite   string `json:"suite"`
+	City    string `json:"city"`
+	Zipcode string `json:"zipcode"`
+	Geo     Geo    `json:"geo"`
+}
+
+type Geo struct {
+	Lat string `json:"lat"`
+	Lng string `json:"lng"`
+}
+
+type Company struct {
+	Name        string `json:"name"`
+	CatchPhrase string `json:"catchPhrase"`
+	Bs          string `json:"bs"`
+}
+
+func (h *Handler) callApiHandler(c *gin.Context) {
+	userApi := os.Getenv("USER_API")
+	url := fmt.Sprintf("%s/users/1", userApi)
+	response, err := http.Get(url)
+	if err != nil {
+		fmt.Print(err.Error())
+		os.Exit(1)
+	}
+
+	responseData, err := ioutil.ReadAll(response.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	var responseObject User
+	json.Unmarshal(responseData, &responseObject)
+
+	c.JSON(http.StatusOK, responseObject)
 }
