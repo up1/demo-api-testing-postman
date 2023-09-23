@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="api-testing" tests="4" time="0.000">
+  <testsuite name="Login" id="7ba01ed4-10f2-45c9-a320-f626db9ab861" timestamp="2023-09-23T15:45:03.601Z" tests="1" failures="1" errors="2" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1161:16)
+
+---
+testScriptError: Unexpected token u in JSON at position 0
+---
+]]></system-err>
+    <testcase name="Status code is 200" time="0.000" classname="ApiTesting">
+      <failure type="AssertionFailure" message="expected { Object (id, _details, ...) } to have property 'code'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 6165fe13-944e-4414-b01f-503416392e50.]]>
+        <![CDATA[Collection name: api-testing.]]>
+        <![CDATA[Request name: Login.]]>
+        <![CDATA[Test description: Status code is 200.]]>
+        <![CDATA[Error message: expected { Object (id, _details, ...) } to have property 'code'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected { Object (id, _details, ...) } to have property 'code'
+   at Object.eval sandbox-script.js:1:1).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Get all books" id="6f2e0025-cb66-464a-897d-0a19c811e13f" timestamp="2023-09-23T15:45:03.601Z" tests="4" failures="4" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1161:16)
+
+---
+]]></system-err>
+    <testcase name="Status code is 200" time="0.000" classname="ApiTesting">
+      <failure type="AssertionFailure" message="expected { Object (id, _details, ...) } to have property 'code'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 6165fe13-944e-4414-b01f-503416392e50.]]>
+        <![CDATA[Collection name: api-testing.]]>
+        <![CDATA[Request name: Get all books.]]>
+        <![CDATA[Test description: Status code is 200.]]>
+        <![CDATA[Error message: expected { Object (id, _details, ...) } to have property 'code'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected { Object (id, _details, ...) } to have property 'code'
+   at Object.eval sandbox-script.js:1:2).]]>
+      </failure>
+    </testcase>
+    <testcase name="Your test name" time="0.000" classname="ApiTesting">
+      <failure type="AssertionFailure" message="Unexpected token u in JSON at position 0">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 6165fe13-944e-4414-b01f-503416392e50.]]>
+        <![CDATA[Collection name: api-testing.]]>
+        <![CDATA[Request name: Get all books.]]>
+        <![CDATA[Test description: Your test name.]]>
+        <![CDATA[Error message: Unexpected token u in JSON at position 0.]]>
+        <![CDATA[Stacktrace: JSONError: Unexpected token u in JSON at position 0
+   at Object.eval sandbox-script.js:2:2).]]>
+      </failure>
+    </testcase>
+    <testcase name="Response is an array of objects" time="0.000" classname="ApiTesting">
+      <failure type="AssertionFailure" message="Unexpected token u in JSON at position 0">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 6165fe13-944e-4414-b01f-503416392e50.]]>
+        <![CDATA[Collection name: api-testing.]]>
+        <![CDATA[Request name: Get all books.]]>
+        <![CDATA[Test description: Response is an array of objects.]]>
+        <![CDATA[Error message: Unexpected token u in JSON at position 0.]]>
+        <![CDATA[Stacktrace: JSONError: Unexpected token u in JSON at position 0
+   at Object.eval sandbox-script.js:3:2).]]>
+      </failure>
+    </testcase>
+    <testcase name="Each book object has the required properties" time="0.000" classname="ApiTesting">
+      <failure type="AssertionFailure" message="Unexpected token u in JSON at position 0">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 6165fe13-944e-4414-b01f-503416392e50.]]>
+        <![CDATA[Collection name: api-testing.]]>
+        <![CDATA[Request name: Get all books.]]>
+        <![CDATA[Test description: Each book object has the required properties.]]>
+        <![CDATA[Error message: Unexpected token u in JSON at position 0.]]>
+        <![CDATA[Stacktrace: JSONError: Unexpected token u in JSON at position 0
+   at Object.eval sandbox-script.js:4:2).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Create a new book" id="7ddf60ac-b40d-49b3-9222-09e56f41630b" timestamp="2023-09-23T15:45:03.601Z" tests="1" failures="1" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1161:16)
+
+---
+]]></system-err>
+    <testcase name="Status code is 201" time="0.000" classname="ApiTesting">
+      <failure type="AssertionFailure" message="expected { Object (id, _details, ...) } to have property 'code'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 6165fe13-944e-4414-b01f-503416392e50.]]>
+        <![CDATA[Collection name: api-testing.]]>
+        <![CDATA[Request name: Create a new book.]]>
+        <![CDATA[Test description: Status code is 201.]]>
+        <![CDATA[Error message: expected { Object (id, _details, ...) } to have property 'code'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected { Object (id, _details, ...) } to have property 'code'
+   at Object.eval sandbox-script.js:1:3).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Delete a book by id" id="c1d95639-f146-4073-a657-5b14f63c4ea3" timestamp="2023-09-23T15:45:03.601Z" tests="1" failures="1" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1161:16)
+
+---
+]]></system-err>
+    <testcase name="Status code is 204" time="0.000" classname="ApiTesting">
+      <failure type="AssertionFailure" message="expected { Object (id, _details, ...) } to have property 'code'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 6165fe13-944e-4414-b01f-503416392e50.]]>
+        <![CDATA[Collection name: api-testing.]]>
+        <![CDATA[Request name: Delete a book by id.]]>
+        <![CDATA[Test description: Status code is 204.]]>
+        <![CDATA[Error message: expected { Object (id, _details, ...) } to have property 'code'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected { Object (id, _details, ...) } to have property 'code'
+   at Object.eval sandbox-script.js:1:4).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+</testsuites>

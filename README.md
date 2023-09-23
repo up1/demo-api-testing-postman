@@ -90,3 +90,11 @@ Authorization: Bearer <token>
 Response=204
 ```
 
+## Run API testing with Docker
+* Postman
+* Newman
+```
+$rm -rf report/
+$docker compose up api_test --abort-on-container-exit --build
+```
+

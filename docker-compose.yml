@@ -29,3 +29,9 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+  
+  api_test:
+    build: ./api-test
+    tty: true
+    volumes:
+      - ./report:/etc/newman/newman
