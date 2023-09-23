@@ -10,6 +10,8 @@ $docker compose ps
 NAME                IMAGE               COMMAND                  SERVICE             CREATED             STATUS                    PORTS
 go-api-api-1        go-api-api          "./api"                  api                 5 minutes ago       Up 6 seconds              0.0.0.0:8080->8080/tcp
 go-api-db-1         postgres:13         "docker-entrypoint.s…"   db                  8 minutes ago       Up 17 seconds (healthy)   0.0.0.0:5432->5432/tcp
+
+$docker compose logs --follow
 ```
 
 ## List of APIs

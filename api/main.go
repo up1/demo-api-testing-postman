@@ -110,10 +110,12 @@ func (h *Handler) createBookHandler(c *gin.Context) {
 	var book Book
 
 	if err := c.BindJSON(&book); err != nil {
+		c.JSON(http.StatusBadRequest, nil)
 		return
 	}
 
 	if result := h.db.Create(&book); result.Error != nil {
+		c.JSON(http.StatusInternalServerError, nil)
 		return
 	}
 

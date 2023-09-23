@@ -12,8 +12,6 @@ services:
 
   db:
     image: postgres:13
-    ports:
-      - 5432:5432
     volumes:
       - ./db/tables.sql:/docker-entrypoint-initdb.d/1.sql
       - ./db/data.sql:/docker-entrypoint-initdb.d/2.sql
