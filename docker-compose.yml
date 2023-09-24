@@ -42,3 +42,12 @@ services:
     build: ./mock-api
     ports:
       - 8882:8882
+
+  prometheus:
+    image: prom/prometheus:v2.45.0
+    command:
+      - --web.enable-remote-write-receiver
+      - --enable-feature=native-histograms
+      - --config.file=/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
