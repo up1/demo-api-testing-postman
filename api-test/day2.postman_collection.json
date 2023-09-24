@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "d59c0488-4858-473c-ac9c-e8e2228a0de5",
+		"name": "day2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1453931",
+		"_collection_link": "https://www.postman.com/red-firefly-245852/workspace/postman-workshop/collection/1453931-d59c0488-4858-473c-ac9c-e8e2228a0de5?action=share&source=collection_link&creator=1453931"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Login => Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Login => Response body has the required properties\", function () {",
+							"    var responseJSON = pm.response.json();",
+							"    pm.expect(responseJSON).to.have.property('token');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{service1_url}}/login",
+					"host": [
+						"{{service1_url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "service1_url",
+			"value": "http://157.230.47.76:8080",
+			"type": "string"
+		}
+	]
+}
