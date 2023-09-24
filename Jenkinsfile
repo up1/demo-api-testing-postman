@@ -16,6 +16,7 @@ pipeline {
         }
         stage('3. Deploy') {
             steps {
+                sh 'docker compose up -d mock-api'
                 sh 'docker compose up -d api'
             }
         }
