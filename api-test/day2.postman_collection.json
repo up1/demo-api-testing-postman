@@ -22,6 +22,10 @@
 							"pm.test(\"Login => Response body has the required properties\", function () {",
 							"    var responseJSON = pm.response.json();",
 							"    pm.expect(responseJSON).to.have.property('token');",
+							"",
+							"",
+							"    pm.collectionVariables.set(\"token\", responseJSON.token);",
+							"",
 							"});"
 						],
 						"type": "text/javascript"
@@ -38,6 +42,63 @@
 					],
 					"path": [
 						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all books",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Get all books => Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Get all books => check size of results = 3\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(3).to.eql(jsonData.length);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Get all books => Response body structure is valid\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    ",
+							"    pm.expect(jsonData).to.be.an('array').that.has.lengthOf.above(0);",
+							"",
+							"    jsonData.forEach(function(book) {",
+							"        pm.expect(book).to.be.an('object').that.has.all.keys('id', 'title', 'author');",
+							"    });",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{service1_url}}/books",
+					"host": [
+						"{{service1_url}}"
+					],
+					"path": [
+						"books"
 					]
 				}
 			},
@@ -69,6 +130,10 @@
 			"key": "service1_url",
 			"value": "http://157.230.47.76:8080",
 			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": ""
 		}
 	]
 }
