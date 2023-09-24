@@ -11,8 +11,8 @@ services:
       - PASSWORD=password
       - DB=data
       - HOST=db
-      - USER_API=https://jsonplaceholder.typicode.com
-      # - USER_API=http://mock-api:8882 # Use mock server
+      # - USER_API=https://jsonplaceholder.typicode.com
+      - USER_API=http://mock-api:8882 # Use mock server
     depends_on:
       db:
         condition: service_healthy
