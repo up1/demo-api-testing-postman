@@ -36,9 +36,9 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "{{service1_url}}/login",
+					"raw": "{{TARGET_URL}}/login",
 					"host": [
-						"{{service1_url}}"
+						"{{TARGET_URL}}"
 					],
 					"path": [
 						"login"
@@ -93,9 +93,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{service1_url}}/books",
+					"raw": "{{TARGET_URL}}/books",
 					"host": [
-						"{{service1_url}}"
+						"{{TARGET_URL}}"
 					],
 					"path": [
 						"books"
@@ -126,11 +126,6 @@
 		}
 	],
 	"variable": [
-		{
-			"key": "service1_url",
-			"value": "http://157.230.47.76:8080",
-			"type": "string"
-		},
 		{
 			"key": "token",
 			"value": ""
